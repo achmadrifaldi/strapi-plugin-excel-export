@@ -77,7 +77,7 @@ const HomePage = () => {
   };
   const columnRestructure = columns.map((property) => ({
     name: property?.charAt(0).toUpperCase() + property?.slice(1).replace(/_/g, " "),
-    selector: (row) => row[property]
+    selector: (row) => row[property]?.toString()
   }));
   const formatDate = (date) => {
     const day = date.getDate().toString().padStart(2, "0");
@@ -166,7 +166,7 @@ const HomePage = () => {
           }
         )
       ] }),
-      /* @__PURE__ */ jsx(Box, { children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx("div", { style: { overflowY: "auto", width: "90vw", height: "100vh", padding: "0 16px" }, children: /* @__PURE__ */ jsx(
         DataTable,
         {
           columns: columnRestructure,
@@ -191,4 +191,4 @@ const App = () => {
 export {
   App
 };
-//# sourceMappingURL=App-Ci5Vvqcy.mjs.map
+//# sourceMappingURL=App-Bra9zdGU.mjs.map

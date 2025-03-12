@@ -1,5 +1,6 @@
 import {
   Box,
+  ScrollArea,
   Typography,
   Combobox,
   ComboboxOption,
@@ -94,7 +95,7 @@ const HomePage = () => {
 
   const columnRestructure = columns.map((property) => ({
     name: property?.charAt(0).toUpperCase() + property?.slice(1).replace(/_/g, " "),
-    selector: (row) => row[property],
+    selector: (row) => row[property]?.toString(),
   }));
 
   const formatDate = (date) => {
@@ -199,7 +200,7 @@ const HomePage = () => {
                 </Typography>
               )}
             </Box>
-            <Box>
+            <div style={{ overflowY: "auto", width: "90vw", height: "100vh", padding: "0 16px" }}>
               <DataTable
                 columns={columnRestructure}
                 data={tableData}
@@ -210,7 +211,7 @@ const HomePage = () => {
                 onChangePage={handlePageChange}
                 progressPending={loading}
               />
-            </Box>
+            </div>
           </Box>
         )}
       </Box>
